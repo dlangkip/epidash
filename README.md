@@ -140,7 +140,7 @@ With guidance from CEMA's expert team, this prototype could evolve into a valuab
 ## 📬 Contact
 
 Developed by **Amos Kiprotich Langat**  
-📧 amoskiprotich1130@gmail.com  
+📧 dlang@benfex.net  
 🔗 [Portfolio](https://dlang.benfex.net) · [GitHub](https://github.com/dlangkip) · [LinkedIn](https://linkedin.com/in/amokip)
 
 ---
