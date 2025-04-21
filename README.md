@@ -15,6 +15,13 @@
 
 </div>
 
+## 📊 Dashboard Preview
+
+<div align="center">
+  <img src="./assets/img/dashboard-preview.png" alt="EpiDash Dashboard Preview" width="100%"/>
+  <p><i>Interactive visualization of epidemiological data across regions, diseases, and time periods</i></p>
+</div>
+
 ---
 
 ## 🔍 Overview
