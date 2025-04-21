@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Background Shape -->
+  <rect x="10" y="10" width="40" height="40" rx="8" fill="#3366cc" />
+  
+  <!-- Chart Line -->
+  <path d="M15 35 L25 25 L35 30 L45 15" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Data Points -->
+  <circle cx="15" cy="35" r="3" fill="#ffffff" />
+  <circle cx="25" cy="25" r="3" fill="#ffffff" />
+  <circle cx="35" cy="30" r="3" fill="#ffffff" />
+  <circle cx="45" cy="15" r="3" fill="#ffffff" />
+  
+  <!-- Text Part -->
+  <text x="60" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700" fill="#3366cc">EpiDash</text>
+  
+  <!-- Subtitle -->
+  <text x="60" y="48" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#666666">Epidemiological Dashboard</text>
+</svg>

@@ -1,0 +1,71 @@
+# EpiDash .htaccess file
+# Place this in your root directory
+
+# Enable rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # If the request is for an actual file or directory, don't rewrite
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Handle API requests
+    RewriteRule ^api/(.*)$ api/$1 [L]
+</IfModule>
+
+# Enable Cross-Origin Resource Sharing (CORS)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# PHP settings
+<IfModule mod_php7.c>
+    # Display errors for debugging (remove in production)
+    php_flag display_errors on
+    php_value error_reporting E_ALL
+    
+    # Maximum execution time
+    php_value max_execution_time 300
+    
+    # Maximum input variables (for complex forms)
+    php_value max_input_vars 3000
+    
+    # Memory limit
+    php_value memory_limit 256M
+</IfModule>
+
+# Ensure PHP files are properly handled
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# Prevent viewing of .htaccess file
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Caching settings for static resources
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
