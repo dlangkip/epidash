@@ -1,142 +1,148 @@
-# EpiDash - Epidemiological Data Dashboard
+# EpiDash – Epidemiological Data Dashboard
 
-A comprehensive web dashboard for visualizing and analyzing epidemiological data, specially designed as a showcase project for the CEMA Software Engineering Internship application.
+<div align="center">
 
-![EpiDash Screenshot](./assets/img/dashboard-preview.png)
+![EpiDash Logo](./assets/img/logo.svg)
 
-## Overview
+**Live Demo:** [https://cema.benfex.net](https://cema.benfex.net)
 
-EpiDash is an interactive dashboard that visualizes epidemiological data across different regions, diseases, and time periods. It's built with modern web technologies and follows best practices for data visualization and user interface design.
+[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-blue.svg)](https://www.php.net/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-3.9.1-brightgreen.svg)](https://www.chartjs.org/)
+[![Leaflet](https://img.shields.io/badge/Leaflet-1.9.3-green.svg)](https://leafletjs.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+**A data visualization dashboard built to empower evidence-based public health decisions**
 
-- **Interactive Data Visualization**: Charts, maps, and tables to visualize disease trends
-- **Advanced Filtering**: Filter data by disease, region, date range, age group, and gender
-- **Dual Data Source Support**: Switch between mock data and real database data
-- **Responsive Design**: Fully functional on desktop and mobile devices
-- **Real-time Metrics**: Key statistics and indicators for quick data analysis
-- **Data Export**: Export filtered data as CSV for further analysis
-- **Geographic Visualization**: Map-based visualization of disease prevalence
+</div>
 
-## Technologies Used
+---
+
+## 🔍 Overview
+
+**EpiDash** is an interactive web-based dashboard designed to assist epidemiologists, public health researchers, and health officials in visualizing and analyzing epidemiological data across Kenya. Inspired by CEMA's mission to leverage data-driven approaches for infectious disease control, this tool demonstrates the power of digital solutions in modern public health surveillance.
+
+The platform offers intuitive visualization of disease trends across regions, demographics, and time periods, turning complex epidemiological data into actionable insights.
+
+---
+
+## 🎯 Project Objectives
+
+- **Democratize Data Access**: Create an intuitive interface that makes epidemiological data accessible to both experts and policy makers
+- **Enhance Analytical Capabilities**: Provide powerful filtering and visualization tools for identifying patterns and trends in disease outbreaks
+- **Support Decision Making**: Generate exportable reports and visualizations for evidence-based public health interventions
+- **Ensure Scalability**: Architect a solution that can grow from prototype to production, handling increasing data volumes and user demands
+
+---
+
+## 💻 Key Features
+
+| Feature | Description |
+|--------|-------------|
+| 📊 **Multi-dimensional Visualization** | Interactive charts for disease trends, regional distributions, and demographic analysis powered by Chart.js |
+| 🗺️ **Geographic Mapping** | Choropleth maps for visualizing disease prevalence across Kenya's counties using Leaflet.js |
+| 🔍 **Advanced Filtering** | Dynamic filters for disease type, region, gender, age group, and custom date ranges |
+| 📅 **Temporal Analysis** | Data grouping by day, week, month, quarter, or year for multi-scale trend analysis |
+| 📑 **Tabular Data View** | Sortable and searchable data tables with CSV export functionality |
+| 📱 **Responsive Design** | Fully functional across desktop and mobile devices with adaptive layouts |
+| 🔄 **Dual Data Sources** | Seamless switching between mock data (for demonstration) and database storage (for production) |
+| ⚡ **Real-time Metrics** | At-a-glance statistical insights including recovery rates, mortality rates, and trend analysis |
+
+---
+
+## 🛠️ Technology Stack
 
 - **Frontend**:
-  - HTML5, CSS3, JavaScript
+  - HTML5, CSS3, JavaScript (ES6+)
   - Chart.js for data visualization
-  - Leaflet.js for map visualization
-  
-- **Backend**:
-  - PHP for server-side processing
-  - MySQL-compatible database structure (with mock data generation for demonstration)
+  - Leaflet.js for interactive mapping
+  - Custom-built responsive UI components
 
-## Installation & Setup
+- **Backend**:
+  - PHP 7.4+ for server-side processing
+  - RESTful API architecture for data retrieval
+  - Configurable data sources via environment variables
+  - MySQL-compatible database structure
+
+- **DevOps**:
+  - Version controlled via Git/GitHub
+  - Configured for Apache/Nginx deployments
+  - Environment-based configuration management
+  - Optimized asset delivery with browser caching
+
+---
+
+## 🔧 Installation & Setup
 
 ### Prerequisites
 
 - Web server with PHP 7.4+ support
-- MySQL database (optional - mock data is provided)
+- MySQL database (optional - mock data is provided for demonstration)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
 
-### Installation Steps
+### Quick Start
 
 1. Clone the repository:
    ```
    git clone https://github.com/dlangkip/epidash.git
    ```
 
-2. Upload files to your web server or place them in your local development environment's web root.
+2. Configure the environment:
+   - Copy `api/.env.example` to `api/.env`
+   - Update settings as needed (database credentials, data source preferences)
 
-3. Configure the data source in `api/config.php`:
-   ```php
-   // Choose your preferred default data source: 'mock', 'database', or 'both'
-   define('DEFAULT_DATA_SOURCE', 'mock');
-   // Enable or disable the ability to switch between data sources
-   define('ALLOW_SOURCE_SWITCHING', true);
-   ```
+3. Deploy to web server:
+   - Upload files to your web server or set up in your local development environment
+   - Ensure proper permissions for the web server to read/write to required directories
 
-4. If using the database:
+4. Initialize the database (optional for production use):
    - Create a MySQL database
-   - Import the `database/epidash.sql` file
-   - Update the database credentials in `api/config.php`
+   - Import the schema from `database/epidash.sql`
+   - Update database credentials in your `.env` file
 
-5. Access the dashboard through your web browser:
+5. Access the dashboard:
    ```
-   http://localhost/epidash/
+   http://your-server-path/epidash/
    ```
-
-## Project Structure
-
-```
-epidemic-dashboard/
-  ├── api/               # Backend API endpoints
-  │   ├── config.php     # Configuration settings
-  │   ├── connection.php # Database connection
-  │   ├── get_data.php   # Data retrieval endpoint
-  │   └── process_data.php # Data processing functions
-  ├── assets/            # Frontend assets
-  │   ├── css/           # Stylesheets
-  │   ├── js/            # JavaScript files
-  │   └── img/           # Images and icons
-  ├── data/              # Data files
-  │   ├── disease_data.php # Sample disease data generator
-  │   └── regions.php    # Region data for visualization
-  ├── includes/          # PHP includes
-  │   ├── header.php     # Header template
-  │   ├── footer.php     # Footer template
-  │   └── sidebar.php    # Dashboard sidebar
-  ├── index.php          # Main dashboard page
-  └── README.md          # Project documentation
-```
-
-## Usage
-
-1. **Dashboard Navigation**: Use the top navigation menu to switch between different dashboard views.
-
-2. **Data Source Selection**: Use the dropdown in the header to switch between:
-   - Mock Data: Generated sample data for demonstration
-   - Database: Real data from the MySQL database
-   - Both Sources: Combined data from both sources
-
-3. **Data Filtering**: Use the sidebar filters to narrow down data by:
-   - Disease type
-   - Region
-   - Age group
-   - Gender
-   - Date range
-
-4. **Data Visualization**: Interact with charts by hovering or clicking on data points for more details.
-
-5. **Map Interaction**: Click on regions in the map to zoom in and view detailed statistics.
-
-6. **Data Export**: Click the "Export CSV" button to download filtered data for external analysis.
-
-## Customization
-
-This dashboard is designed to be easily customizable:
-
-- Modify `api/config.php` to adjust application settings
-- Edit `data/regions.php` to update region information
-- Customize the UI by modifying CSS files in `assets/css/`
-- Add or modify visualizations in `assets/js/charts.js`
-
-## Portfolio Demonstration
-
-This project was created as a showcase for CEMA Software Engineering Internship application, demonstrating skills in:
-
-- Frontend development (HTML, CSS, JavaScript)
-- Data visualization 
-- Backend API development (PHP)
-- Responsive UI/UX design
-- Geographic data visualization
-- Statistical data processing
-
-## About CEMA
-
-The Center for Epidemiological Modelling and Analysis (CEMA) at the University of Nairobi is a multidisciplinary research hub focused on leveraging data-driven approaches to control infectious diseases and enhance public health outcomes across Kenya and Africa.
-
-## License
-
-This project is created for demonstration purposes. All rights reserved.
 
 ---
 
-Created by [Kiprotich](https://dlang.benfex.net) - CEMA Internship Application 2025
+## 🤝 Alignment with CEMA's Mission
+
+This project was developed as part of my preparation for the **Software Engineering Track at CEMA**, drawing inspiration from the center's focus on data-driven approaches to disease control and public health enhancement across Kenya and Africa.
+
+EpiDash directly supports CEMA's core objectives by:
+
+- **Enhancing Data Accessibility**: Converting complex epidemiological data into intuitive visualizations that inform intervention strategies
+- **Supporting Research Translation**: Bridging the gap between data collection and practical application through user-friendly interfaces
+- **Promoting Collaborative Analysis**: Creating a platform where multidisciplinary teams can explore the same data through different analytical lenses
+- **Enabling Evidence-based Decisions**: Providing public health officials with clear, actionable insights derived from comprehensive data analysis
+
+With guidance from CEMA's expert team, this prototype could evolve into a valuable tool for:
+- Disease surveillance and outbreak detection
+- Resource allocation optimization for public health initiatives
+- Evaluation of intervention effectiveness
+- Communication of public health metrics to stakeholders and the general public
+
+---
+
+## 🚀 Development Roadmap
+
+- [ ] **API Integration**: Connect to live epidemiological data sources through secure API endpoints
+- [ ] **User Authentication**: Implement role-based access control with secure authentication
+- [ ] **Advanced Analytics**: Add predictive modeling and statistical analysis features
+- [ ] **Mobile App**: Develop companion mobile application for field data collection
+- [ ] **Offline Capability**: Enable offline data access with synchronization
+- [ ] **Localization**: Support for multiple languages including Swahili
+- [ ] **Real-time Alerts**: Notification system for threshold-based disease monitoring
+
+---
+
+## 📬 Contact
+
+Developed by **Amos Kiprotich Langat**  
+📧 amoskiprotich1130@gmail.com  
+🔗 [Portfolio](https://dlang.benfex.net) · [GitHub](https://github.com/dlangkip) · [LinkedIn](https://linkedin.com/in/amokip)
+
+---
+
+> *This project currently uses synthetic data modeled on realistic epidemiological patterns. For integration with live data sources or customization inquiries, please reach out via email.*
